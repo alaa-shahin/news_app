@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/bloc_observer.dart';
 import 'package:news_app/cache_helper/cache.dart';
+import 'package:news_app/common_widgets/app_theme.dart';
 import 'package:news_app/cubit/cubit.dart';
 import 'package:news_app/cubit/states.dart';
 import 'package:news_app/home_layout/home_layout.dart';
@@ -31,78 +31,8 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             title: 'News App',
             debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              primarySwatch: Colors.deepOrange,
-              scaffoldBackgroundColor: Colors.white,
-              textTheme: TextTheme(
-                bodyText1: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-              appBarTheme: AppBarTheme(
-                titleSpacing: 20.0,
-                elevation: 0.0,
-                backgroundColor: Colors.white,
-                backwardsCompatibility: false,
-                iconTheme: IconThemeData(
-                  color: Colors.black,
-                ),
-                systemOverlayStyle: SystemUiOverlayStyle(
-                  statusBarColor: Colors.white,
-                  // statusBarBrightness: Brightness.dark,
-                  statusBarIconBrightness: Brightness.dark,
-                ),
-                titleTextStyle: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20.0,
-                  color: Colors.black,
-                ),
-              ),
-              bottomNavigationBarTheme: BottomNavigationBarThemeData(
-                backgroundColor: Colors.white,
-                selectedItemColor: Colors.deepOrange,
-                type: BottomNavigationBarType.fixed,
-                elevation: 20.0,
-              ),
-            ),
-            darkTheme: ThemeData(
-              primarySwatch: Colors.deepOrange,
-              scaffoldBackgroundColor: Colors.black38,
-              appBarTheme: AppBarTheme(
-                titleSpacing: 20.0,
-                elevation: 0.0,
-                backgroundColor: Colors.black38,
-                backwardsCompatibility: false,
-                iconTheme: IconThemeData(
-                  color: Colors.white,
-                ),
-                systemOverlayStyle: SystemUiOverlayStyle(
-                  statusBarColor: Colors.black,
-                  statusBarIconBrightness: Brightness.light,
-                ),
-                titleTextStyle: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20.0,
-                  color: Colors.white,
-                ),
-              ),
-              bottomNavigationBarTheme: BottomNavigationBarThemeData(
-                backgroundColor: Colors.black38,
-                unselectedItemColor: Colors.grey,
-                selectedItemColor: Colors.deepOrange,
-                type: BottomNavigationBarType.fixed,
-                elevation: 20.0,
-              ),
-              textTheme: TextTheme(
-                bodyText1: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-            ),
+            theme: lightTheme,
+            darkTheme: darkTheme,
             themeMode: NewsCubit.get(context).isDark
                 ? ThemeMode.dark
                 : ThemeMode.light,
